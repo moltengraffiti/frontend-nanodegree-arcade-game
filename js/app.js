@@ -30,12 +30,10 @@ Enemy.prototype.update = function (dt) {
     else{ //We send to start
         this.x=this.startPosn;
     }
-
 };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function () {
-
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
@@ -45,7 +43,13 @@ Enemy.prototype.render = function () {
 
 /* Also need image and position on board */
 var Hero = function () {
-    //Declare as a class? Why not as per enemy class above?
+    this.sprite='images/char-cat-girl.png';
+    this.x=0;
+    this.y=0;
+    this.stepup=101;
+    this.stepside=83;
+    
+    
 }
 
 Hero.prototype.update = function (dt) {
@@ -54,7 +58,7 @@ Hero.prototype.update = function (dt) {
 }
 
 Hero.prototype.render = function () {
-    //Hanlde input from user
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 
@@ -64,10 +68,8 @@ Hero.prototype.render = function () {
 // Place the player object in a variable called player
 
 const player = new Hero();
-const bug1= new Enemy();
-const allEnemies=[];
-allEnemies.push(bug1);
 
+const allEnemies=[];
 for(let i=1; i<4; i++){
     //this.startPosn=i;
     let bug=new Enemy(i, i);
