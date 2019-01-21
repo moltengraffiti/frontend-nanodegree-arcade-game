@@ -9,7 +9,7 @@ var Enemy = function (row, col, speed) {
     this.x = 0;
     this.speed = speed;
     //Bug should be on rows, not water
-    this.y = +83 * this.row;
+    this.y = +(83 * this.row)-20;
     this.offScreen = -this.step * col;
     this.startPosn = this.x - this.offScreen;
 
@@ -41,8 +41,8 @@ class Hero {
         this.stepUp = 83;
         this.stepSide = 101;
         this.sprite = 'images/char-cat-girl.png';
-        this.startX = this.stepUp * col;
-        this.x = this.startX;;
+        this.startX = this.stepSide*col;
+        this.x = this.startX;
         this.startY = 83 * 5;
         this.y = this.startY;
         this.Won=false;
@@ -66,7 +66,8 @@ class Hero {
             }
             */
         }
-
+        //collision?
+        //won?
 
     handleInput(key) {
 
@@ -79,7 +80,7 @@ class Hero {
         else if (key === 'right' && (this.x < this.stepSide * 4)) {
             this.x += this.stepSide;
         }
-        else if (this.y < this.stepUp * 4) {
+        else if (this.y < this.stepUp * 5) {
             this.y += this.stepUp;
         }
     }
@@ -96,7 +97,7 @@ let colRand = function (minNum, maxNum) {
 //Let's create some characters, some enemies and the Hero (player)
 
 //Hero's starting position can be in any of the last row cells, use a random num function to determine where
-const player = new Hero(colRand(0, 5));
+const player = new Hero(colRand(0, 4));
 const allEnemies = [];
 
 //Create three enemies, and determine their start position using a random number generating function
