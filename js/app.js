@@ -1,14 +1,15 @@
 // Enemies our player must avoid
-var Enemy = function () {
+var Enemy = function (row) {
 
     this.sprite = 'images/enemy-bug.png';
     //set a staring point for the sprite
+    this.row=row;
     this.x = 0;
     //Bug should be on rows, not water
-    this.y = +83;
-    this.yMax=+83;
+    this.y = +83*this.row;
+    //this.yMax=+83;
     //setting row for later multiple bugs
-    this.row=0;
+    
     this.yMin=this.yMax*4;
     this.step = 101;
     this.startPosn=this.step;
@@ -62,7 +63,10 @@ const bug1= new Enemy();
 const allEnemies=[];
 allEnemies.push(bug1);
 
-
+for(let i=1; i<4; i++){
+    (i)=new Enemy(i);
+    allEnemies.push(i);
+}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
