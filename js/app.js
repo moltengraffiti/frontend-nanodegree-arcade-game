@@ -1,26 +1,29 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function () {
 
     this.sprite = 'images/enemy-bug.png';
     //set a staring point for the sprite
-    this.x=0;
-    this.y=0;
-    this.step=101;
+    this.x = 0;
+    this.y = 0;
+    this.step = 101;
 
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
+Enemy.prototype.update = function (dt) {
     //If the sprite is within x boundary, move forward
-    if (this.x <this.step*4){
+    if (this.x < this.step * 5) {
         this.x += 200 * dt;
     }
-    
+    else{ //We send to start
+        this.x-=this.step;
+    }
+
 };
 
 // Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
+Enemy.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
@@ -29,16 +32,16 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 /* Also need image and position on board */
-var Hero = function(){
-//Declare as a class? Why not as per enemy class above?
+var Hero = function () {
+    //Declare as a class? Why not as per enemy class above?
 }
 
-Hero.prototype.update = function(dt){
+Hero.prototype.update = function (dt) {
     //collision?
     //won?
 }
 
-Hero.prototype.render=function(){
+Hero.prototype.render = function () {
     //Hanlde input from user
 }
 
@@ -52,7 +55,7 @@ Hero.prototype.render=function(){
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
+document.addEventListener('keyup', function (e) {
     var allowedKeys = {
         37: 'left',
         38: 'up',
