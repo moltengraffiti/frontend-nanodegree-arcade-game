@@ -64,6 +64,7 @@ Hero.prototype.render = function () {
 // Place the player object in a variable called player
 
 //**Would like a rand function here to determine which col the hero appears */
+//***Check if num exists already, to prevent all rands the same  */
 let colRand= function(minNum, maxNum){
     
     //let max=4;
@@ -72,14 +73,14 @@ let colRand= function(minNum, maxNum){
     return num;
 }
 
-const player = new Hero(colRand());
+const player = new Hero(colRand(0, 5));
 
 const allEnemies=[];
 
 //Change this up slightly - have row be a rand, have more bugs
-for(let i=1; i<5; i++){
+for(let i=1; i<4; i++){
     //this.startPosn=i;
-    let bug=new Enemy(colRand(1, 3), -colRand(0, 5));
+    let bug=new Enemy(i, -colRand(0, 5));
     allEnemies.push(bug);
 }
 
