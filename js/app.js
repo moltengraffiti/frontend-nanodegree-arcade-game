@@ -45,6 +45,7 @@ class Hero {
         this.x = this.startX;;
         this.startY = 83 * 5;
         this.y = this.startY;
+        this.Won=false;
     }
 
     render() {
@@ -52,11 +53,21 @@ class Hero {
     }
     update(dt) {
         if (this.y==this.stepUp){
+            this.Won=true;
             console.log('Game has been won');
         }
-        //collision?
-        //won?
-    }
+        //check for collision
+        /*
+            for(let enemy of allEnemies){
+              //This doesn't work
+                if(this.y===enemy.y && (enemy.x+enemy.step>this.x && enemy.step< this.x+this.stepUp)){
+                   console.log('Crash');
+                }
+            }
+            */
+        }
+
+
     handleInput(key) {
 
         if (key === 'left' && this.x >this.stepSide) {
