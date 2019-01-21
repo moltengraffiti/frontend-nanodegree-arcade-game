@@ -64,8 +64,8 @@ const allEnemies=[];
 allEnemies.push(bug1);
 
 for(let i=1; i<4; i++){
-    (i)=new Enemy(i);
-    allEnemies.push(i);
+    let bug=new Enemy(i);
+    allEnemies.push(bug);
 }
 
 // This listens for key presses and sends the keys to your
