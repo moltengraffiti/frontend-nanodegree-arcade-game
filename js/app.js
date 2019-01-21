@@ -4,7 +4,12 @@ var Enemy = function () {
     this.sprite = 'images/enemy-bug.png';
     //set a staring point for the sprite
     this.x = 0;
-    this.y = 0;
+    //Bug should be on rows, not water
+    this.y = +83;
+    this.yMax=+83;
+    //setting row for later multiple bugs
+    this.row=0;
+    this.yMin=this.yMax*4;
     this.step = 101;
     this.startPosn=this.step;
 
