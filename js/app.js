@@ -77,7 +77,7 @@ const player = new Hero(colRand());
 const allEnemies=[];
 
 //Change this up slightly - have row be a rand, have more bugs
-for(let i=1; i<6; i++){
+for(let i=1; i<5; i++){
     //this.startPosn=i;
     let bug=new Enemy(colRand(1, 3), -colRand(0, 5));
     allEnemies.push(bug);
