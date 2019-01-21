@@ -54,7 +54,7 @@ Hero.prototype.render = function () {
 const player = new Hero();
 const bug1= new Enemy();
 const allEnemies=[];
-allEnemies.push('bug1');
+allEnemies.push(bug1);
 
 
 
