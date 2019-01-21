@@ -45,7 +45,8 @@ Enemy.prototype.render = function () {
 var Hero = function () {
     this.sprite='images/char-cat-girl.png';
     this.x=0;
-    this.y=0;
+    this.startY=83*5;
+    this.y=this.startY;
     this.stepup=101;
     this.stepside=83;
     
@@ -67,6 +68,7 @@ Hero.prototype.render = function () {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+//**Would like a rand function here to determine which col the hero appears */
 const player = new Hero();
 
 const allEnemies=[];
