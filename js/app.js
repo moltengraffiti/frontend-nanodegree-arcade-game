@@ -2,29 +2,27 @@
 var Enemy = function (row, col, speed) {
 
     this.sprite = 'images/enemy-bug.png';
-
-    this.row=row;
+    this.row = row;
     this.step = 101;
     this.x = 0;
-    this.speed=speed;
-
+    this.speed = speed;
     //Bug should be on rows, not water
-    this.y = +83*this.row;
-    this.offScreen=-this.step*col;
- 
-    this.startPosn=this.x-this.offScreen;
-    
+    this.y = +83 * this.row;
+    this.offScreen = -this.step * col;
+
+    this.startPosn = this.x - this.offScreen;
+
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function (dt) {
-    //If the sprite is within x boundary, move forward
+    //If the sprite is within x boundary, move forward by speed
     if (this.x < this.step * 5) {
         this.x += this.speed * dt;
     }
-    else{ //We send to start
-        this.x=this.startPosn;
+    else { //We send to start
+        this.x = this.startPosn;
     }
 };
 
@@ -41,23 +39,23 @@ Enemy.prototype.render = function () {
 //** Update to a class as per instructions */
 
 
-class Hero{
-    constructor(col){
-        this.stepup=101;
-        this.stepside=83;
-        this.sprite='images/char-cat-girl.png';
-        this.startX=this.stepup*col;
-        this.x=this.startX;;
-        this.startY=83*5;
-        this.y=this.startY;   
+class Hero {
+    constructor(col) {
+        this.stepup = 101;
+        this.stepside = 83;
+        this.sprite = 'images/char-cat-girl.png';
+        this.startX = this.stepup * col;
+        this.x = this.startX;;
+        this.startY = 83 * 5;
+        this.y = this.startY;
     }
 
-    render(){
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);  
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-    update(dt){
-    //collision?
-    //won?
+    update(dt) {
+        //collision?
+        //won?
     }
 }
 
@@ -66,22 +64,19 @@ class Hero{
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-//**Would like a rand function here to determine which col the hero appears */
-//***Check if num exists already, to prevent all rands the same?  */
-let colRand= function(minNum, maxNum){
-
-    let num=Math.floor(Math.random()*maxNum)+minNum;
-    console.log('Random num is '+ num);
+//Random function, used to generate values for col, row and speed
+let colRand = function (minNum, maxNum) {
+    let num = Math.floor(Math.random() * maxNum) + minNum;
+    console.log('Random num is ' + num);
     return num;
 }
 
 const player = new Hero(colRand(0, 5));
 
-const allEnemies=[];
+const allEnemies = [];
 
-for(let i=1; i<4; i++){
-    //this.startPosn=i;
-    let bug=new Enemy(i, -colRand(0, 5), colRand(80, 300));
+for (let i = 1; i < 4; i++) {
+    let bug = new Enemy(i, -colRand(0, 5), colRand(80, 300));
     allEnemies.push(bug);
 }
 

@@ -4,3 +4,5 @@ Score count
 Collision
 Won condition
 Won modal
+
+Scoring - use bug icon, and increase from 1 to 5 based on moves
