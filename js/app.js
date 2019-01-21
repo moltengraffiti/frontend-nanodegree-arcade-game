@@ -39,25 +39,27 @@ Enemy.prototype.render = function () {
 
 /* Also need image and position on board */
 //** Update to a class as per instructions */
-var Hero = function (col) {
-    this.stepup=101;
-    this.stepside=83;
-    this.sprite='images/char-cat-girl.png';
-    this.startX=this.stepup*col;
-    this.x=this.startX;;
-    this.startY=83*5;
-    this.y=this.startY;      
-}
 
-Hero.prototype.update = function (dt) {
+
+class Hero{
+    constructor(col){
+        this.stepup=101;
+        this.stepside=83;
+        this.sprite='images/char-cat-girl.png';
+        this.startX=this.stepup*col;
+        this.x=this.startX;;
+        this.startY=83*5;
+        this.y=this.startY;   
+    }
+
+    render(){
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);  
+    }
+    update(dt){
     //collision?
     //won?
+    }
 }
-
-Hero.prototype.render = function () {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
-
 
 
 // Now instantiate your objects.
@@ -65,7 +67,7 @@ Hero.prototype.render = function () {
 // Place the player object in a variable called player
 
 //**Would like a rand function here to determine which col the hero appears */
-//***Check if num exists already, to prevent all rands the same  */
+//***Check if num exists already, to prevent all rands the same?  */
 let colRand= function(minNum, maxNum){
 
     let num=Math.floor(Math.random()*maxNum)+minNum;
@@ -77,7 +79,6 @@ const player = new Hero(colRand(0, 5));
 
 const allEnemies=[];
 
-//Change this up slightly - have row be a rand, have more bugs
 for(let i=1; i<4; i++){
     //this.startPosn=i;
     let bug=new Enemy(i, -colRand(0, 5), colRand(80, 300));
