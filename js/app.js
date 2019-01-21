@@ -37,10 +37,10 @@ Enemy.prototype.render = function () {
 
 class Hero {
     constructor(col) {
-        this.stepup = 101;
-        this.stepside = 83;
+        this.stepUp = 101;
+        this.stepSide = 83;
         this.sprite = 'images/char-cat-girl.png';
-        this.startX = this.stepup * col;
+        this.startX = this.stepUp * col;
         this.x = this.startX;;
         this.startY = 83 * 5;
         this.y = this.startY;
@@ -53,18 +53,21 @@ class Hero {
         //collision?
         //won?
     }
-    handleInput(key){
-    
-        if(key==='left'){
-            this.x-=this.stepup;
-        }
-        else if(key==='up'){      
-        }
-        else if(key==='right'){
-        }
-        else{
+    handleInput(key) {
 
+        if (key === 'left' && this.x > 0) {
+            this.x -= this.stepSide;
         }
+        else if (key === 'up' && this.y > this.stepUp) {
+            this.y -= this.stepUp;
+        }
+        else if (key === 'right' && (this.x < this.stepSide * 4)) {
+            this.x += this.stepSide;
+        }
+        else if (this.y < this.stepUp * 4) {
+            this.y += this.stepUp;
+        }
+
 
     }
 }
