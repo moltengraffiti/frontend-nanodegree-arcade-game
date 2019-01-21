@@ -44,7 +44,7 @@ class Hero {
         this.startX = this.stepSide*col;
         this.x = this.startX;
         this.startY = 83 * 5;
-        this.y = this.startY;
+        this.y = (this.startY)-20;
         this.Won=false;
     }
 
@@ -71,7 +71,7 @@ class Hero {
 
     handleInput(key) {
 
-        if (key === 'left' && this.x >this.stepSide) {
+        if (key === 'left' && this.x >0) {
             this.x -= this.stepSide;
         }
         else if (key === 'up' && this.y > this.stepUp) {
