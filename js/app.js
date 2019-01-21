@@ -79,7 +79,11 @@ class Hero {
 
 //Random function, used to generate values for col, row and speed
 let colRand = function (minNum, maxNum) {
-    let num = Math.floor(Math.random() * maxNum) + minNum;
+  //  let num = Math.floor(Math.random() * maxNum) + minNum;
+    //Changing rand function as it's generating nums outside the range
+    //From stackExchange the fn below allows generation of rands where min is not 1
+    let num = Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
+
     console.log('Random num is ' + num);
     return num;
 }
