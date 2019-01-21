@@ -4,16 +4,19 @@ var Enemy = function (row, col) {
     this.sprite = 'images/enemy-bug.png';
     //set a staring point for the sprite
     this.row=row;
-    this.col=col;
-    this.x = 0;
+    this.startCol=col;
+    this.x = 101*col;
+    //this.x=0;
     //Bug should be on rows, not water
     this.y = +83*this.row;
     //this.yMax=+83;
     //setting row for later multiple bugs
-    
-    this.yMin=this.yMax*4;
+
     this.step = 101;
     this.startPosn=this.x-this.step;
+    //this.loopPosn=startPosn*this.col;
+
+    //**Good start on the random start positions, but they loop into the middle of the board */
 
 };
 
@@ -32,6 +35,7 @@ Enemy.prototype.update = function (dt) {
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function () {
+
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
@@ -65,6 +69,7 @@ const allEnemies=[];
 allEnemies.push(bug1);
 
 for(let i=1; i<4; i++){
+    //this.startPosn=i;
     let bug=new Enemy(i, i);
     allEnemies.push(bug);
 }
