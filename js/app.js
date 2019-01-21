@@ -2,22 +2,18 @@
 var Enemy = function (row, col) {
 
     this.sprite = 'images/enemy-bug.png';
-    //set a staring point for the sprite
+
     this.row=row;
-    this.startCol=col;
-    this.x = 101*col;
-    //this.x=0;
+    this.step = 101;
+    this.x = 0;
+
     //Bug should be on rows, not water
     this.y = +83*this.row;
-    //this.yMax=+83;
-    //setting row for later multiple bugs
-
-    this.step = 101;
-    this.startPosn=this.x-this.step;
-    //this.loopPosn=startPosn*this.col;
-
-    //**Good start on the random start positions, but they loop into the middle of the board */
-
+    this.offScreen=-this.step*col;
+ 
+    this.startPosn=this.x-this.offScreen;
+    //Change of tactics, start all off screen by varying degrees
+    
 };
 
 // Update the enemy's position, required method for game
@@ -49,10 +45,7 @@ var Hero = function (col) {
     this.startX=this.stepup*col;
     this.x=this.startX;;
     this.startY=83*5;
-    this.y=this.startY;
-   
-    
-    
+    this.y=this.startY;      
 }
 
 Hero.prototype.update = function (dt) {
@@ -81,9 +74,10 @@ let colRand= function(){
 const player = new Hero(colRand());
 
 const allEnemies=[];
+
 for(let i=1; i<4; i++){
     //this.startPosn=i;
-    let bug=new Enemy(i, i);
+    let bug=new Enemy(i, -colRand());
     allEnemies.push(bug);
 }
 
