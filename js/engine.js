@@ -78,7 +78,7 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
-        updateEntities(dt);
+      //  updateEntities(dt); *****Commented out due t display issue
         // checkCollisions();
     }
 
@@ -89,6 +89,8 @@ var Engine = (function(global) {
      * the data/properties related to the object. Do your drawing in your
      * render methods.
      */
+
+ 
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
