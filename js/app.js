@@ -35,10 +35,6 @@ Enemy.prototype.render = function () {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-/* Also need image and position on board */
-//** Update to a class as per instructions */
-
-
 class Hero {
     constructor(col) {
         this.stepup = 101;
@@ -56,6 +52,20 @@ class Hero {
     update(dt) {
         //collision?
         //won?
+    }
+    handleInput(key){
+    
+        if(key==='left'){
+            this.x-=this.stepup;
+        }
+        else if(key==='up'){      
+        }
+        else if(key==='right'){
+        }
+        else{
+
+        }
+
     }
 }
 
