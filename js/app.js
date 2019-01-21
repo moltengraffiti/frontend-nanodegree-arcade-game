@@ -42,13 +42,15 @@ Enemy.prototype.render = function () {
 // a handleInput() method.
 
 /* Also need image and position on board */
-var Hero = function () {
-    this.sprite='images/char-cat-girl.png';
-    this.x=0;
-    this.startY=83*5;
-    this.y=this.startY;
+var Hero = function (col) {
     this.stepup=101;
     this.stepside=83;
+    this.sprite='images/char-cat-girl.png';
+    this.startX=this.stepup*col;
+    this.x=this.startX;;
+    this.startY=83*5;
+    this.y=this.startY;
+   
     
     
 }
@@ -69,7 +71,14 @@ Hero.prototype.render = function () {
 // Place the player object in a variable called player
 
 //**Would like a rand function here to determine which col the hero appears */
-const player = new Hero();
+let colRand= function(){
+    let maxCol=4;
+    let num=Math.floor(Math.random()*maxCol);
+    console.log('Random column is '+ num);
+    return num;
+}
+
+const player = new Hero(colRand());
 
 const allEnemies=[];
 for(let i=1; i<4; i++){
