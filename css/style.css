@@ -1,35 +1,52 @@
 body {
     text-align: center;
 }
-.container {
+header{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+.headerContainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.score-panel {
+    text-align: center;
+    width: 600px;
+    margin-top: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-}
-.score-panel {
-    text-align: left;
-    width: 600px;
-    margin-bottom: 10px;
-    justify-content: space-between;
+
 }
 
 .score-panel .stars {
-    margin: 0;
-    padding: 0;
+    margin: 2px;
+    padding: 2px;
     display: inline-block;
-    margin: 0 5px 0 0;
+    margin: 0 5px 0 0;  
+
 }
 
 .score-panel .stars li {
     list-style: none;
-    display: inline-block;
+    float:right;
+    
+}
+.score-panel .moves{
+    margin: 5px;
+
 }
 .score-panel .timer{
-    display: inline-block;
+    padding: 5px;
+
 }
 .score-panel .restart {
-    float: right;
+    margin: 10px;
+
     cursor: pointer;
 }
 .modal-body{

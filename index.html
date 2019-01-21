@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Effective JavaScript: Frogger</title>
@@ -7,37 +8,45 @@
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-        <div class="container">
-                <header>
-                    <h1>Beat the Bugs</h1>
-                </header>
-        
-                <section class="score-panel">
-        
-                    <ul class="stars">
-                        Player Rating:
-                        <li><i class="fa fa-bug"></i></li>
-                        <li><i class="fa fa-bug"></i></li>
-                        <li><i class="fa fa-bug"></i></li>
-                        <li><i class="fa fa-bug"></i></li>
-                        <li><i class="fa fa-bug"></i></li>
-                    </ul>
-        
-                    Moves: <span class="moves">0</span>
-        
-                    <div class="timer">
-                        Timer: <span class="time">0:00</span>               
-                    </div>
-        
-                    <div class="restart">
-                        <i class="fa fa-repeat"></i>
-                    </div>
-                </section>  
-</div>
+    <header>
+        <h1>Beat the Bugs</h1>
+    </header>
+    <div class=headerContainer>
+
+        <section class="score-panel">
+            <div class="rating">
+                <ul class="stars">
+                    Player Rating:
+                    <li><i class="fa fa-bug"></i></li>
+                    <li><i class="fa fa-bug"></i></li>
+                    <li><i class="fa fa-bug"></i></li>
+                    <li><i class="fa fa-bug"></i></li>
+                    <li><i class="fa fa-bug"></i></li>
+                </ul>
+            </div>
+            <div class="moves">
+                Moves: <span class="moves">0</span>
+            </div>
+
+
+            <div class="timer">
+                Timer: <span class="time">0:00</span>
+            </div>
+
+            <div class="restart">
+                <i class="fa fa-repeat"></i>
+            </div>
+        </section>
+    </div>
+    <div id=canvasContainer>
+
+    </div>
 
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
 </body>
+
 </html>
