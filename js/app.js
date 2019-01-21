@@ -6,6 +6,8 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+
+    //X and y pos?
 };
 
 // Update the enemy's position, required method for game
@@ -14,6 +16,9 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
+    //Need to move enemy around
+    
 };
 
 // Draw the enemy on the screen, required method for game
@@ -24,6 +29,21 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+
+/* Also need image and position on board */
+var Hero = function(){
+//Declare as a class? Why not as per enemy class above?
+}
+
+Hero.prototype.update = function(dt){
+    //collision?
+    //won?
+}
+
+Hero.prototype.render=function(){
+    //Hanlde input from user
+}
+
 
 
 // Now instantiate your objects.
