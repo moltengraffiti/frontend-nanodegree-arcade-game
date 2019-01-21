@@ -6,6 +6,7 @@ var Enemy = function () {
     this.x = 0;
     this.y = 0;
     this.step = 101;
+    this.startPosn=this.step;
 
 };
 
@@ -14,10 +15,10 @@ var Enemy = function () {
 Enemy.prototype.update = function (dt) {
     //If the sprite is within x boundary, move forward
     if (this.x < this.step * 5) {
-        this.x += 200 * dt;
+        this.x += 100 * dt;
     }
     else{ //We send to start
-        this.x-=this.step;
+        this.x=this.startPosn;
     }
 
 };

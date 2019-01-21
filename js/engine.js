@@ -78,7 +78,7 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
-      //  updateEntities(dt); *****Commented out due t display issue
+        updateEntities(dt); 
         // checkCollisions();
     }
 
