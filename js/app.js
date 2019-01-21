@@ -38,8 +38,8 @@ Enemy.prototype.render = function () {
 
 class Hero {
     constructor(col) {
-        this.stepUp = 101;
-        this.stepSide = 83;
+        this.stepUp = 83;
+        this.stepSide = 101;
         this.sprite = 'images/char-cat-girl.png';
         this.startX = this.stepUp * col;
         this.x = this.startX;;
@@ -56,7 +56,7 @@ class Hero {
     }
     handleInput(key) {
 
-        if (key === 'left' && this.x > 0) {
+        if (key === 'left' && this.x >this.stepSide) {
             this.x -= this.stepSide;
         }
         else if (key === 'up' && this.y > this.stepUp) {

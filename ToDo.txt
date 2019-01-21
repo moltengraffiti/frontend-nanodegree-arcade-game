@@ -1,4 +1,4 @@
-Convert HEro fn to class - Done
+Convert Hero fn to class - Done
 Game timer
 Score count
 Collision
@@ -8,4 +8,6 @@ Won modal
 Scoring - use bug icon, and increase from 1 to 5 based on moves
 
 Look into jump back of player char
-Why is rand generating nums outside of the max?
+Why is rand generating nums outside of the max? - Done
+
+Styling - need some padding on chars
