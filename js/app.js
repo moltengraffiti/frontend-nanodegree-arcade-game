@@ -51,6 +51,9 @@ class Hero {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
     update(dt) {
+        if (this.y==this.stepUp){
+            console.log('Game has been won');
+        }
         //collision?
         //won?
     }
