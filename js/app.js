@@ -1,4 +1,6 @@
 // Enemies our player must avoid
+
+
 var Enemy = function (row, col, speed) {
 
     this.sprite = 'images/enemy-bug.png';
@@ -9,7 +11,6 @@ var Enemy = function (row, col, speed) {
     //Bug should be on rows, not water
     this.y = +83 * this.row;
     this.offScreen = -this.step * col;
-
     this.startPosn = this.x - this.offScreen;
 
 };
@@ -67,35 +68,29 @@ class Hero {
         else if (this.y < this.stepUp * 4) {
             this.y += this.stepUp;
         }
-
-
     }
 }
 
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
-//Random function, used to generate values for col, row and speed
 let colRand = function (minNum, maxNum) {
-  //  let num = Math.floor(Math.random() * maxNum) + minNum;
-    //Changing rand function as it's generating nums outside the range
     //From stackExchange the fn below allows generation of rands where min is not 1
     let num = Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
-
     console.log('Random num is ' + num);
     return num;
 }
 
-const player = new Hero(colRand(0, 5));
+//Let's create some characters, some enemies and the Hero (player)
 
+//Hero's starting position can be in any of the last row cells, use a random num function to determine where
+const player = new Hero(colRand(0, 5));
 const allEnemies = [];
 
+//Create three enemies, and determine their start position using a random number generating function
 for (let i = 1; i < 4; i++) {
     let bug = new Enemy(i, -colRand(0, 5), colRand(80, 300));
     allEnemies.push(bug);
 }
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -109,3 +104,6 @@ document.addEventListener('keyup', function (e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+//Random function, used to generate values for col, row and speed
+
