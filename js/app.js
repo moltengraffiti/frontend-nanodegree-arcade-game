@@ -1,9 +1,10 @@
 // Enemies our player must avoid
-var Enemy = function (row) {
+var Enemy = function (row, col) {
 
     this.sprite = 'images/enemy-bug.png';
     //set a staring point for the sprite
     this.row=row;
+    this.col=col;
     this.x = 0;
     //Bug should be on rows, not water
     this.y = +83*this.row;
@@ -12,7 +13,7 @@ var Enemy = function (row) {
     
     this.yMin=this.yMax*4;
     this.step = 101;
-    this.startPosn=this.step;
+    this.startPosn=this.x-this.step;
 
 };
 
@@ -64,7 +65,7 @@ const allEnemies=[];
 allEnemies.push(bug1);
 
 for(let i=1; i<4; i++){
-    let bug=new Enemy(i);
+    let bug=new Enemy(i, i);
     allEnemies.push(bug);
 }
 
