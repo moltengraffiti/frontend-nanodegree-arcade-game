@@ -1,18 +1,18 @@
 // Enemies our player must avoid
-var Enemy = function (row, col) {
+var Enemy = function (row, col, speed) {
 
     this.sprite = 'images/enemy-bug.png';
 
     this.row=row;
     this.step = 101;
     this.x = 0;
+    this.speed=speed;
 
     //Bug should be on rows, not water
     this.y = +83*this.row;
     this.offScreen=-this.step*col;
  
     this.startPosn=this.x-this.offScreen;
-    //Change of tactics, start all off screen by varying degrees
     
 };
 
@@ -21,7 +21,7 @@ var Enemy = function (row, col) {
 Enemy.prototype.update = function (dt) {
     //If the sprite is within x boundary, move forward
     if (this.x < this.step * 5) {
-        this.x += 100 * dt;
+        this.x += this.speed * dt;
     }
     else{ //We send to start
         this.x=this.startPosn;
@@ -38,6 +38,7 @@ Enemy.prototype.render = function () {
 // a handleInput() method.
 
 /* Also need image and position on board */
+//** Update to a class as per instructions */
 var Hero = function (col) {
     this.stepup=101;
     this.stepside=83;
@@ -66,8 +67,7 @@ Hero.prototype.render = function () {
 //**Would like a rand function here to determine which col the hero appears */
 //***Check if num exists already, to prevent all rands the same  */
 let colRand= function(minNum, maxNum){
-    
-    //let max=4;
+
     let num=Math.floor(Math.random()*maxNum)+minNum;
     console.log('Random num is '+ num);
     return num;
@@ -80,7 +80,7 @@ const allEnemies=[];
 //Change this up slightly - have row be a rand, have more bugs
 for(let i=1; i<4; i++){
     //this.startPosn=i;
-    let bug=new Enemy(i, -colRand(0, 5));
+    let bug=new Enemy(i, -colRand(0, 5), colRand(80, 300));
     allEnemies.push(bug);
 }
 

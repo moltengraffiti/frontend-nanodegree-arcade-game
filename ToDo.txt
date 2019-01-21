@@ -1,0 +1,6 @@
+Convert HEro fn to class
+Game timer
+Score count
+Collision
+Won condition
+Won modal
