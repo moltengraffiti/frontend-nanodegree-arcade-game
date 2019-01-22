@@ -22,8 +22,13 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
+        //I want to append the canvas to another element to control placement
+        container=document.getElementById("canvasContainer"),
+        //Id for the cancel animation functionality
+        reqId,
         lastTime;
-       container=document.getElementById("canvasContainer");
+     
+       
 
     canvas.width = 505;
     canvas.height = 606;
@@ -57,7 +62,14 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-        win.requestAnimationFrame(main);
+        //Need to cancel this if won
+        if(player.Won===true){
+            win.cancelAnimationFrame(reqId);
+        }
+        else{
+            ReqId=win.requestAnimationFrame(main);
+        }
+        
     }
 
     /* This function does some initial setup that should only occur once,
