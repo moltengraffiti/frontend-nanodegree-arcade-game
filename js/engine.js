@@ -35,6 +35,8 @@ var Engine = (function(global) {
    // doc.body.appendChild(canvas);
     container.appendChild(canvas);
 
+    const theModal=document.querySelector('#winModal');
+
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
@@ -65,6 +67,7 @@ var Engine = (function(global) {
         //Need to cancel this if won
         if(player.Won===true){
             win.cancelAnimationFrame(reqId);
+            theModal.classList.toggle('modal')
         }
         else{
             ReqId=win.requestAnimationFrame(main);

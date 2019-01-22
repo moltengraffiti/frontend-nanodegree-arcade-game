@@ -46,7 +46,6 @@ header{
 }
 .score-panel .restart {
     margin: 10px;
-
     cursor: pointer;
 }
 .modal-body{
@@ -55,11 +54,8 @@ header{
     position: relative;
    
 }
-.modal-header{
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-}
 .modal-footer{
     display: flex;
     justify-content: space-between;
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+ 
 }
