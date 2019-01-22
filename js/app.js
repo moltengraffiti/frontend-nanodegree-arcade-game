@@ -9,7 +9,7 @@ var Enemy = function (row, col, speed) {
     this.x = 0;
     this.speed = speed;
     //Bug should be on rows, not water
-    this.y = +(83 * this.row)-20;
+    this.y = +(83 * this.row) - 20;
     this.offScreen = -this.step * col;
     this.startPosn = this.x - this.offScreen;
 
@@ -41,11 +41,11 @@ class Hero {
         this.stepUp = 83;
         this.stepSide = 101;
         this.sprite = 'images/char-cat-girl.png';
-        this.startX = this.stepSide*col;
+        this.startX = this.stepSide * col;
         this.x = this.startX;
         this.startY = 83 * 5;
-        this.y = (this.startY)-20;
-        this.Won=false;
+        this.y = (this.startY) - 20;
+        this.Won = false;
     }
 
     render() {
@@ -53,8 +53,8 @@ class Hero {
     }
     update(dt) {
         //Also add the char padding in here, or won is never met
-        if (this.y==this.stepUp-20){
-            this.Won=true;
+        if (this.y == this.stepUp - 20) {
+            this.Won = true;
             console.log('Game has been won');
         }
         //check for collision
@@ -66,13 +66,16 @@ class Hero {
                 }
             }
             */
-        }
-        //collision?
-        //won?
+    }
+
+    reset() {
+        this.x = this.startX;
+        this.y = this.startY;
+    }
 
     handleInput(key) {
 
-        if (key === 'left' && this.x >0) {
+        if (key === 'left' && this.x > 0) {
             this.x -= this.stepSide;
         }
         else if (key === 'up' && this.y > this.stepUp) {

@@ -13,7 +13,7 @@
  * writing app.js a little simpler to work with.
  */
 
-var Engine = (function(global) {
+var Engine = (function (global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas element's height/width and add it to the DOM.
@@ -23,21 +23,41 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         //I want to append the canvas to another element to control placement
-        container=document.getElementById("canvasContainer"),
-       // body=document.getElementsByName("body"),
+        container = document.getElementById("canvasContainer"),
+        // body=document.getElementsByName("body"),
         //Id for the cancel animation functionality
         reqId,
         lastTime;
-     
-       
+
+
 
     canvas.width = 505;
     canvas.height = 606;
-   // doc.body.appendChild(canvas);
+    // doc.body.appendChild(canvas);
     container.appendChild(canvas);
 
-    const theModal=document.querySelector('#winModal');
+    let startOver = document.querySelector('.restart');
+    const theModal = document.querySelector('#winModal');
+    let modalCancel = document.querySelector('.modal-exit');
+    let modalReplay = document.querySelector('.modal-replay');
 
+    
+        //Add functionality to the rest button and modal buttons
+        startOver.addEventListener('click', function (click) {
+            const resetTarget = click.target;
+            console.log('Restart button clicked')
+            player.reset();
+        })
+
+        modalCancel.addEventListener('click', function () {
+            toggleModal();
+            console.log('Cancel button clicked')
+            // resetTimer();
+        })
+        modalReplay.addEventListener('click', function () {
+            toggleModal();
+            // resetGame();
+        })
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
@@ -66,15 +86,19 @@ var Engine = (function(global) {
          * function again as soon as the browser is able to draw another frame.
          */
         //Need to cancel this if won
-        if(player.Won===true){
+        if (player.Won === true) {
             win.cancelAnimationFrame(reqId);
-            theModal.classList.toggle('modal')
-           // body.appendChild('theModal');
+            toggleModal();
+            // body.appendChild('theModal');
         }
-        else{
-            ReqId=win.requestAnimationFrame(main);
+        else {
+            ReqId = win.requestAnimationFrame(main);
         }
-        
+
+    }
+
+    function toggleModal() {
+        theModal.classList.toggle('modal')
     }
 
     /* This function does some initial setup that should only occur once,
@@ -97,7 +121,7 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
     function update(dt) {
-        updateEntities(dt); 
+        updateEntities(dt);
         // checkCollisions();
     }
 
@@ -109,9 +133,9 @@ var Engine = (function(global) {
      * render methods.
      */
 
- 
+
     function updateEntities(dt) {
-        allEnemies.forEach(function(enemy) {
+        allEnemies.forEach(function (enemy) {
             enemy.update(dt);
         });
         player.update();
@@ -128,19 +152,19 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
-            ],
+            'images/water-block.png',   // Top row is water
+            'images/stone-block.png',   // Row 1 of 3 of stone
+            'images/stone-block.png',   // Row 2 of 3 of stone
+            'images/stone-block.png',   // Row 3 of 3 of stone
+            'images/grass-block.png',   // Row 1 of 2 of grass
+            'images/grass-block.png'    // Row 2 of 2 of grass
+        ],
             numRows = 6,
             numCols = 5,
             row, col;
 
         // Before drawing, clear existing canvas
-        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         /* Loop through the number of rows and columns we've defined above
          * and, using the rowImages array, draw the correct image for that
@@ -170,7 +194,7 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
-        allEnemies.forEach(function(enemy) {
+        allEnemies.forEach(function (enemy) {
             enemy.render();
         });
 
