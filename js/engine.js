@@ -41,7 +41,26 @@ var Engine = (function (global) {
     let modalCancel = document.querySelector('.modal-exit');
     let modalReplay = document.querySelector('.modal-replay');
 
-
+        //Add functionality to the rest button and modal buttons
+        startOver.addEventListener('click', function (click) {
+            const resetTarget = click.target;
+            console.log('Restart button clicked')
+            player.reset();
+            win.requestAnimationFrame(main)
+        })
+    
+        modalCancel.addEventListener('click', function () {
+            toggleModal();
+            console.log('Cancel button clicked')
+            // resetTimer();
+        })
+        modalReplay.addEventListener('click', function () {
+            toggleModal();
+            player.reset();
+             //  win.requestAnimationFrame(main)
+            // resetGame();
+            main();
+        })
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -86,22 +105,7 @@ var Engine = (function (global) {
         theModal.classList.toggle('modal')
     }
 
-    //Add functionality to the rest button and modal buttons
-    startOver.addEventListener('click', function (click) {
-        const resetTarget = click.target;
-        console.log('Restart button clicked')
-        player.reset();
-    })
 
-    modalCancel.addEventListener('click', function () {
-        toggleModal();
-        console.log('Cancel button clicked')
-        // resetTimer();
-    })
-    modalReplay.addEventListener('click', function () {
-        toggleModal();
-        // resetGame();
-    })
 
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the

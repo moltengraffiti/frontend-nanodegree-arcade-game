@@ -1,15 +1,17 @@
 Convert Hero fn to class - Done
-Game timer
-Score count
+Game timer - future
+Score count - future
 Collision
 Won condition - Done
-Won modal
+Won modal - Done
 
 Scoring - use bug icon, and increase from 1 to 5 based on moves
 
 Look into jump back of player char
 Why is rand generating nums outside of the max? - Done
 
-Styling - need some padding on chars
+Styling - need some padding on chars - Done
 
 Need to style the page
+
+Reset/Replay won't let game be won again?
