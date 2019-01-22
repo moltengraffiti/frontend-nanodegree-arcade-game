@@ -47,6 +47,8 @@ var Engine = (function (global) {
             console.log('Restart button clicked')
             player.reset();
             win.requestAnimationFrame(main)
+            //init();
+            //reset();
         })
     
         modalCancel.addEventListener('click', function () {
@@ -56,10 +58,13 @@ var Engine = (function (global) {
         })
         modalReplay.addEventListener('click', function () {
             toggleModal();
+            player.Won = false;
             player.reset();
-             //  win.requestAnimationFrame(main)
+            init();
+          //  reset();
+             // win.requestAnimationFrame(main)
             // resetGame();
-            main();
+           
         })
 
     /* This function serves as the kickoff point for the game loop itself

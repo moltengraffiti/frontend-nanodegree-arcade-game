@@ -15,3 +15,5 @@ Styling - need some padding on chars - Done
 Need to style the page
 
 Reset/Replay won't let game be won again?
+
+Rubiq states that the GAME must reset on Collision, not player
