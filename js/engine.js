@@ -41,31 +41,31 @@ var Engine = (function (global) {
     let modalCancel = document.querySelector('.modal-exit');
     let modalReplay = document.querySelector('.modal-replay');
 
-        //Add functionality to the rest button and modal buttons
-        startOver.addEventListener('click', function (click) {
-            const resetTarget = click.target;
-            console.log('Restart button clicked')
-            player.reset();
-            win.requestAnimationFrame(main)
-            //init();
-            //reset();
-        })
-    
-        modalCancel.addEventListener('click', function () {
-            toggleModal();
-            console.log('Cancel button clicked')
-            // resetTimer();
-        })
-        modalReplay.addEventListener('click', function () {
-            toggleModal();
-            player.Won = false;
-            player.reset();
-            init();
-          //  reset();
-             // win.requestAnimationFrame(main)
-            // resetGame();
-           
-        })
+    //Add functionality to the rest button and modal buttons
+    startOver.addEventListener('click', function (click) {
+        const resetTarget = click.target;
+        console.log('Restart button clicked')
+        player.reset();
+        win.requestAnimationFrame(main)
+        //init();
+        //reset();
+    })
+
+    modalCancel.addEventListener('click', function () {
+        toggleModal();
+        console.log('Cancel button clicked')
+        // resetTimer();
+    })
+    modalReplay.addEventListener('click', function () {
+        toggleModal();
+        player.Won = false;
+        player.reset();
+        init();
+        //  reset();
+        // win.requestAnimationFrame(main)
+        // resetGame();
+
+    })
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.

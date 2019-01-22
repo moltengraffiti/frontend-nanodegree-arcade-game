@@ -62,16 +62,16 @@ class Hero {
         }
         //check for collision
         //This took forever to figure out, relied on Matt Cranford's site to get it done
-            for(let enemy of allEnemies){
-              
-                if(this.y===enemy.y 
-                    && (
-                        (enemy.x+enemy.step/2 > this.x) && (enemy.x < (this.x + this.stepUp/2)))){
-                   console.log('Crash');
-                   player.reset();
-                }
+        for (let enemy of allEnemies) {
+
+            if (this.y === enemy.y
+                && (
+                    (enemy.x + enemy.step / 2 > this.x) && (enemy.x < (this.x + this.stepUp / 2)))) {
+                console.log('Crash');
+                player.reset();
             }
-            
+        }
+
     }
     //Game can't be won again if reset or replay is used??
     reset() {

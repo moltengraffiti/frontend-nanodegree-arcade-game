@@ -1,20 +1,48 @@
 # Classic Arcade Game Clone Project
 
 ## Table of Contents
+- [Classic Arcade Game Clone Project](#classic-arcade-game-clone-project)
+  - [Table of Contents](#table-of-contents)
+  - [About the Game](#about-the-game)
+  - [Instructions](#instructions)
+    - [Running the Game](#running-the-game)
+    - [Playing the Game](#playing-the-game)
+  - [Known Issues](#known-issues)
+  - [Future Improvements](#future-improvements)
+  - [Authors](#authors)
+  - [License](#license)
 
-- [Instructions](#instructions)
-- [Contributing](#contributing)
+## About the Game
+
+In this game you have a Player and Enemies (bugs). The goal of the player is to reach the water, without colliding into any one of the enemies, using the keyboard arrow keys.
 
 ## Instructions
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+The Game can be downloaded or cloned from the GitHub repository [here](https://github.com/moltengraffiti/frontend-nanodegree-arcade-game)
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+### Running the Game
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
+To run the game open the **index.html** file in a browser.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+### Playing the Game
 
-## Contributing
+Using the keyboard arrow keys &larr;, &uarr;, &rarr; and &darr; the player can navigate the board, with the aim of avoiding the bugs on the paved rows and reaching the water. Colliding with a bug returns the player to the starting position. If the player reached the water, the game is won and a modal appears. The modal allows the game to be replayed or exited.
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+## Known Issues
+
+The Game can't be 're-won' if the 'Reset' option is used during the game or if the option to play again is chosen from the modal. Similarly, this also removes the collision detection.
+The time and move stats on the page an modal show no information as the functionality hasn't been implemented yet.
+
+## Future Improvements
+
+1. Fix known issues above.
+2. Track score or moves accross games
+3. Allow users to select the player charachter
+
+## Authors
+
+Source code provided as part of Project 3- Classic Arcade Game Clone in the FEND nanodegree by Udacity. Interactivity using javascript and some styling added.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
