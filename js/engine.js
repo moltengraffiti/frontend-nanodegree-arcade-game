@@ -24,6 +24,7 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         //I want to append the canvas to another element to control placement
         container=document.getElementById("canvasContainer"),
+       // body=document.getElementsByName("body"),
         //Id for the cancel animation functionality
         reqId,
         lastTime;
@@ -68,6 +69,7 @@ var Engine = (function(global) {
         if(player.Won===true){
             win.cancelAnimationFrame(reqId);
             theModal.classList.toggle('modal')
+           // body.appendChild('theModal');
         }
         else{
             ReqId=win.requestAnimationFrame(main);

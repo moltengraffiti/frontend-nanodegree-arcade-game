@@ -13,8 +13,30 @@
     <header>
         <h1>Beat the Bugs</h1>
     </header>
-    <div class=headerContainer>
 
+
+        <!--Adding a Game Won Modal - for simplicity, re-using the modal from FEND Project 2-->
+        <div id='winModal' class='modal'>
+                <div class="modal-dialog">
+                        <div class="modal-content">
+                    <div class='modal-header'>
+                        <h1 class='modal-title'>You Won!</h1>
+                        <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                    </div>
+                    <div class='modal-body'>
+                        <span class='modalTime'>Total Time:</span>
+                        <span class='modalMoves'>Total Moves:</span>
+                        <span class='modalRating'>Player Rating:</span>
+                    </div>
+                    <div class=modal-footer>
+                        <button type='button' class='btn btn-primary modal-replay'>Play Again</button>
+                        <button type='button' class='btn btn-secondary modal-exit' data-dismiss='modal'>Exit Game</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+    <div class=headerContainer>
         <section class="score-panel">
             <div class="rating">
                 <ul class="stars">
@@ -40,31 +62,12 @@
             </div>
         </section>
     </div>
-    <div id=canvasContainer>
 
+    <div id=canvasContainer>
     </div>
 
-    <!--Adding a Game Won Modal - for simplicity, re-using the modal from FEND Project 2-->
-    <div id='winModal' class='modal'>
-            <div class="modal-dialog">
-                    <div class="modal-content">
-                <div class='modal-header'>
-                    <h1 class='modal-title'>You Won!</h1>
-                    <button type='button' class='close' data-dismiss='modal'>&times;</button>
-                </div>
-                <div class='modal-body'>
-                    <span class='modalTime'>Total Time:</span>
-                    <span class='modalMoves'>Total Moves:</span>
-                    <span class='modalRating'>Player Rating:</span>
-                </div>
-                <div class=modal-footer>
-                    <button type='button' class='btn btn-primary modal-replay'>Play Again</button>
-                    <button type='button' class='btn btn-secondary modal-exit' data-dismiss='modal'>Exit Game</button>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
+
+        
 
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
