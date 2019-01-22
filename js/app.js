@@ -52,7 +52,8 @@ class Hero {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
     update(dt) {
-        if (this.y==this.stepUp){
+        //Also add the char padding in here, or won is never met
+        if (this.y==this.stepUp-20){
             this.Won=true;
             console.log('Game has been won');
         }
