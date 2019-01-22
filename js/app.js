@@ -46,11 +46,15 @@ class Hero {
         this.startY = 83 * 5;
         this.y = (this.startY) - 20;
         this.Won = false;
+
     }
 
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+
+
+
     update(dt) {
         //Also add the char padding in here, or won is never met
         if (this.y == this.stepUp - 20) {
