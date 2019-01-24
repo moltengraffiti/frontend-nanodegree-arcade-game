@@ -1,6 +1,7 @@
 // Enemies our player must avoid
 
-
+//'use strict';
+//Using strict here stops the modal appearing on game win 
 var Enemy = function (row, col, speed) {
 
     this.sprite = 'images/enemy-bug.png';
@@ -49,6 +50,7 @@ class Hero {
 
     }
 
+    //The render function should be an inherited super class for both Player/Enemy
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
@@ -68,7 +70,9 @@ class Hero {
                 && (
                     (enemy.x + enemy.step / 2 > this.x) && (enemy.x < (this.x + this.stepUp / 2)))) {
                 console.log('Crash');
-                player.reset();
+                //Using instance name to refer properties or methods in its own prototype methods violates OOP encapsulation principle.
+                //player.reset to this.reset
+                this.reset();
             }
         }
 
@@ -77,7 +81,8 @@ class Hero {
     reset() {
         //this.Won = false;
         this.x = this.startX;
-        this.y = this.startY;
+        //Rookie error - startY changed to (-20) as per startY in constructor
+        this.y = this.startY-20;
     }
 
     handleInput(key) {
