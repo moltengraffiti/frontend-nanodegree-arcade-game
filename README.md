@@ -31,14 +31,14 @@ Using the keyboard arrow keys &larr;, &uarr;, &rarr; and &darr; the player can n
 ## Known Issues
 
 1. The Game can't be 're-won' if the 'Reset' option is used during the game or if the option to play again is chosen from the modal. Similarly, this also removes the collision detection.
-2. The time and move stats on the page an modal show no information as the functionality hasn't been implemented yet.
+2. The time and move stats on the page and modal show no information as the functionality hasn't been implemented yet.
 3. The modal appears above the game and not overlaying the screen.
 
 
 ## Future Improvements
 
 1. Fix known issues above.
-2. Track score or moves accross games
+2. Track score or moves accros games
 3. Allow users to select the player charachter
 
 ## Authors
