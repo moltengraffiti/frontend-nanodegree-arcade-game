@@ -1,7 +1,7 @@
 // Enemies our player must avoid
 
-//'use strict';
-//Using strict here stops the modal appearing on game win 
+'use strict';
+
 var Enemy = function (row, col, speed) {
 
     this.sprite = 'images/enemy-bug.png';
@@ -50,7 +50,7 @@ class Hero {
 
     }
 
-    //The render function should be an inherited super class for both Player/Enemy
+    //The render function should be an inherited super class for both Player/Enemy - will continue to work on this
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
@@ -96,7 +96,8 @@ class Hero {
         else if (key === 'right' && (this.x < this.stepSide * 4)) {
             this.x += this.stepSide;
         }
-        else if (this.y < this.stepUp * 5) {
+        //Ammended this to be x4 StepUp, not x5
+        else if (this.y < this.stepUp * 4) {
             this.y += this.stepUp;
         }
     }
